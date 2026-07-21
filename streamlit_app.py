@@ -193,22 +193,16 @@ if st.button("Submit Entry", use_container_width=True):
 
         # Update Excel Cell
         sheet.cell(
-            row=customer_row,
-            column=date_column
-        ).value = amount
+    row=customer_row,
+    column=date_column
+    ).value = amount
 
-        # Reload dataframe
-        data = sheet.values
-        columns = next(data)
-        df = pd.DataFrame(data, columns=columns)
+    # refresh dataframe
+    data = sheet.values
+    columns = next(data)
+    df = pd.DataFrame(data, columns=columns)
 
-        st.success("Entry saved successfully!")
-
-        st.dataframe(
-            df,
-            use_container_width=True,
-            height=500
-        )
+    st.success("Entry saved successfully!")
 
 # -------------------------------------------------------
 # Display Excel
